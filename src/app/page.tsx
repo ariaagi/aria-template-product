@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { RiCheckboxCircleLine, RiFlashlightLine } from "@remixicon/react"
 
 import { PageBackdrop } from "@/components/landing/page-backdrop"
@@ -10,7 +9,6 @@ import { SectionFeatures } from "@/components/landing/section-features"
 import { SectionHow } from "@/components/landing/section-how"
 import { SectionLogoStrip } from "@/components/landing/section-logo-strip"
 import { SectionPainOutcome } from "@/components/landing/section-pain-outcome"
-import { SectionPreview } from "@/components/landing/section-preview"
 import { SectionPricing } from "@/components/landing/section-pricing"
 import { SiteFooter } from "@/components/landing/site-footer"
 import { WaitlistForm } from "@/components/landing/waitlist-form"
@@ -28,6 +26,11 @@ const highlights = [
   "Simple setup, zero technical friction",
 ]
 
+/**
+ * ARIA Build regex-patches this path (uploaded product asset). Not rendered in the hero after
+ * layout change — keep the literal so `build-launch.ts` can still replace it.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- patched by ARIA Build; not used in JSX
 const heroImageSrc = "/product-image.svg"
 const headerLogoSrc = siteCopy.paths.headerLogo
 const twitterHandle = "aria_agi"
@@ -52,75 +55,56 @@ export default function Home(): React.ReactElement {
           className="relative border-b border-border/60 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16"
           aria-labelledby="hero-heading"
         >
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-              <div className="min-w-0 space-y-6 sm:space-y-8">
-                <a
-                  href="#story"
-                  className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 py-0.5 pl-0.5 pr-2 text-primary ring-1 ring-primary/10 transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:gap-2 md:py-1 md:pl-1 md:pr-2.5"
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-3xl lg:max-w-7xl">
+              <a
+                href="#story"
+                className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 py-0.5 pl-0.5 pr-2 text-primary ring-1 ring-primary/10 transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:gap-2 md:py-1 md:pl-1 md:pr-2.5"
+              >
+                <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/15 md:size-7">
+                  <RiFlashlightLine className="size-3 md:size-3.5" aria-hidden />
+                </span>
+                <span className="min-w-0 truncate text-[0.6875rem] font-semibold uppercase leading-tight tracking-wide text-primary sm:text-[0.75rem] md:text-[0.8125rem]">
+                  {siteCopy.hero.pillLabel}
+                </span>
+              </a>
+
+              {/* validated idea launch — keep this exact phrase in page.tsx for ARIA Build copy patch */}
+
+              <div className="mt-6 w-full space-y-4 sm:mt-8 sm:space-y-5">
+                <h1
+                  id="hero-heading"
+                  className="max-w-none text-pretty text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.06] lg:text-6xl lg:leading-[1.04] xl:text-7xl xl:leading-[1.03]"
                 >
-                  <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/15 md:size-7">
-                    <RiFlashlightLine className="size-3 md:size-3.5" aria-hidden />
-                  </span>
-                  <span className="min-w-0 truncate text-[0.6875rem] font-semibold uppercase leading-tight tracking-wide text-primary sm:text-[0.75rem] md:text-[0.8125rem]">
-                    {siteCopy.hero.pillLabel}
-                  </span>
-                </a>
+                  Turn validated ideas into high-converting landing pages.
+                </h1>
+                <p className="mx-auto w-full max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground sm:max-w-2xl sm:text-base lg:max-w-2xl lg:text-base lg:leading-relaxed">
+                  This template helps you ship a polished offer page fast with clear messaging, email
+                  capture, and modern responsive design. Plug your copy and go live.
+                </p>
+              </div>
 
-                {/* validated idea launch — keep this exact phrase in page.tsx for ARIA Build copy patch */}
+              <div
+                id="waitlist"
+                className="mt-8 w-full max-w-lg scroll-mt-24 text-left sm:mt-10 sm:scroll-mt-28"
+              >
+                <WaitlistForm dense />
+              </div>
 
-                <div className="space-y-4 sm:space-y-5">
-                  <h1
-                    id="hero-heading"
-                    className="text-balance text-3xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-4xl sm:leading-[1.08] lg:text-5xl xl:text-[3.25rem]"
+              <ul className="mx-auto mt-8 w-full max-w-xl space-y-2.5 sm:mt-10 sm:space-y-3 lg:mt-10 lg:max-w-3xl">
+                {highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex w-full min-w-0 items-start justify-center gap-2.5 text-left text-sm text-foreground/90 sm:text-base"
                   >
-                    Turn validated ideas into high-converting landing pages.
-                  </h1>
-                  <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
-                    This template helps you ship a polished offer page fast with clear messaging, email
-                    capture, and modern responsive design. Plug your copy and go live.
-                  </p>
-                </div>
-
-                <ul className="space-y-2.5 sm:space-y-3">
-                  {highlights.map((item) => (
-                    <li
-                      key={item}
-                      className="flex w-full min-w-0 items-start gap-2.5 text-sm text-foreground/90 sm:text-base"
-                    >
-                      <RiCheckboxCircleLine
-                        className="mt-0.5 size-[1.125rem] shrink-0 text-primary sm:size-5"
-                        aria-hidden
-                      />
-                      <span className="min-w-0 leading-snug">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div id="waitlist" className="scroll-mt-24 space-y-3 sm:scroll-mt-28">
-                  <p className="text-sm font-medium text-foreground">{siteCopy.hero.waitlistHeading}</p>
-                  <WaitlistForm />
-                  <p className="text-xs leading-relaxed text-muted-foreground sm:text-[0.8125rem]">
-                    {siteCopy.hero.waitlistHint}
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
-                <div
-                  className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/80 bg-card/60 shadow-2xl shadow-primary/10 ring-1 ring-black/[0.04] backdrop-blur-sm sm:aspect-[5/4] lg:aspect-[4/5] xl:rounded-3xl"
-                >
-                  <Image
-                    src={heroImageSrc}
-                    alt={siteCopy.hero.heroImageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
-                </div>
-              </div>
+                    <RiCheckboxCircleLine
+                      className="mt-0.5 size-[1.125rem] shrink-0 text-primary sm:size-5"
+                      aria-hidden
+                    />
+                    <span className="max-w-md leading-snug lg:max-w-none">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
@@ -129,7 +113,6 @@ export default function Home(): React.ReactElement {
         <SectionPainOutcome />
         <SectionFeatures />
         <SectionHow />
-        <SectionPreview heroImageSrc={heroImageSrc} />
         <SectionPricing />
         <SectionFaq />
 
@@ -146,7 +129,7 @@ export default function Home(): React.ReactElement {
                 {siteCopy.closing.ctaPrimary}
               </a>
               <a
-                href="#preview"
+                href="#features"
                 className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full sm:w-auto")}
               >
                 {siteCopy.closing.ctaSecondary}

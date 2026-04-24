@@ -22,9 +22,8 @@ export default function CopyLimitsPage(): React.ReactElement {
       <p className="mt-3 max-w-2xl text-pretty text-base text-muted-foreground">
         This site is the{" "}
         <strong className="font-medium text-foreground">ARIA GitHub template</strong>. Each field in <code className="rounded bg-muted px-1 py-0.5 text-sm">siteCopy</code> has a
-        documented ceiling so generated or hand-written text does not overflow the layout after
-        ARIA Build forks the repo. ARIA and Claude can consume the same numbers from{" "}
-        <code className="rounded bg-muted px-1 py-0.5 text-sm">siteCopyCharLimits</code> or{" "}
+        documented ceiling: the shipped template string length (UTF-16), or for repeating blocks the
+        longest sibling. Regenerate these numbers in <code className="rounded bg-muted px-1 py-0.5 text-sm">siteCopyCharLimits</code> after major copy edits. Paste limits for LLMs via{" "}
         <code className="rounded bg-muted px-1 py-0.5 text-sm">formatSiteCopyLimitsForPrompt()</code>
         .
       </p>
