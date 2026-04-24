@@ -20,35 +20,46 @@ export function SocialIconLinks({
   twitterAriaLabel,
   className,
 }: SocialIconLinksProps): React.ReactElement {
+  const trimmedLinkedinUrl = linkedinUrl.trim()
+  const trimmedGithubUrl = githubUrl.trim()
+  const trimmedTwitterUrl = twitterUrl.trim()
+  const showTwitter = Boolean(trimmedTwitterUrl) && !/^https:\/\/x\.com\/?$/i.test(trimmedTwitterUrl)
+
   return (
     <div className={cn("flex shrink-0 items-center gap-0.5 sm:gap-1", className)}>
-      <a
-        href={linkedinUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={iconWrap}
-        aria-label="LinkedIn"
-      >
-        <RiLinkedinFill className="size-[1.125rem]" aria-hidden />
-      </a>
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={iconWrap}
-        aria-label="GitHub"
-      >
-        <RiGithubFill className="size-[1.125rem]" aria-hidden />
-      </a>
-      <a
-        href={twitterUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={iconWrap}
-        aria-label={twitterAriaLabel}
-      >
-        <RiTwitterXLine className="size-[1.125rem]" aria-hidden />
-      </a>
+      {trimmedLinkedinUrl ? (
+        <a
+          href={trimmedLinkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={iconWrap}
+          aria-label="LinkedIn"
+        >
+          <RiLinkedinFill className="size-[1.125rem]" aria-hidden />
+        </a>
+      ) : null}
+      {trimmedGithubUrl ? (
+        <a
+          href={trimmedGithubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={iconWrap}
+          aria-label="GitHub"
+        >
+          <RiGithubFill className="size-[1.125rem]" aria-hidden />
+        </a>
+      ) : null}
+      {showTwitter ? (
+        <a
+          href={trimmedTwitterUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={iconWrap}
+          aria-label={twitterAriaLabel}
+        >
+          <RiTwitterXLine className="size-[1.125rem]" aria-hidden />
+        </a>
+      ) : null}
     </div>
   )
 }
