@@ -1,7 +1,7 @@
 import { RiCheckboxLine, RiVipCrown2Line } from "@remixicon/react"
 
 import { Badge } from "@/components/ui/badge"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { siteCopy } from "@/config/site-copy"
@@ -34,7 +34,7 @@ export function SectionPricing({ className }: { className?: string }): React.Rea
             />
             <CardHeader className="relative pb-4 text-center sm:text-left">
               <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-                <Badge variant="secondary" className="gap-1 font-medium">
+                <Badge variant="default" className="gap-1 font-medium">
                   <RiVipCrown2Line className="size-3.5" aria-hidden />
                   {siteCopy.pricing.badge}
                 </Badge>
@@ -58,13 +58,10 @@ export function SectionPricing({ className }: { className?: string }): React.Rea
                 ))}
               </ul>
             </CardContent>
-            <CardFooter className="relative flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <CardFooter className="relative flex justify-center">
               <a href="#waitlist" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>
                 {siteCopy.pricing.ctaJoin}
               </a>
-              <Button type="button" variant="outline" size="lg" className="w-full sm:w-auto" disabled>
-                {siteCopy.pricing.ctaSales}
-              </Button>
             </CardFooter>
           </Card>
         </div>

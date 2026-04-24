@@ -20,9 +20,10 @@ export function NavHeader({
   twitterHandle,
   linkedinUrl,
   githubUrl,
-  logoSrc = "/logo-placeholder.svg",
+  logoSrc,
 }: NavHeaderProps): React.ReactElement {
   const twitterUrl = `https://x.com/${twitterHandle}`
+  const hasLogo = Boolean(logoSrc?.trim())
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/75 backdrop-blur-md supports-[backdrop-filter]:bg-background/65">
@@ -31,16 +32,18 @@ export function NavHeader({
           href="#top"
           className="inline-flex min-w-0 max-w-[min(100%,18rem)] items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:max-w-xs"
         >
-          <span className="relative inline-block size-9 shrink-0 overflow-hidden rounded-lg bg-muted ring-1 ring-border">
-            <Image
-              src={logoSrc}
-              alt={`${brandName} logo`}
-              fill
-              className="object-cover"
-              sizes="36px"
-              priority
-            />
-          </span>
+          {hasLogo ? (
+            <span className="relative inline-block size-9 shrink-0 overflow-hidden rounded-lg bg-muted ring-1 ring-border">
+              <Image
+                src={logoSrc!}
+                alt={`${brandName} logo`}
+                fill
+                className="object-cover"
+                sizes="36px"
+                priority
+              />
+            </span>
+          ) : null}
           <span className="truncate text-sm font-semibold tracking-tight text-foreground sm:text-base">
             {brandName}
           </span>
