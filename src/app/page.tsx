@@ -87,17 +87,17 @@ export default function Home(): React.ReactElement {
                 <WaitlistForm dense />
               </div>
 
-              <ul className="mx-auto mt-8 w-full max-w-xl space-y-2.5 sm:mt-10 sm:space-y-3 lg:mt-10 lg:max-w-3xl">
+              <ul className="mx-auto mt-8 w-fit max-w-xl space-y-2.5 text-left sm:mt-10 sm:space-y-3 lg:mt-10 lg:max-w-3xl">
                 {highlights.map((item) => (
                   <li
                     key={item}
-                    className="flex w-full min-w-0 items-start justify-center gap-2.5 text-left text-sm text-foreground/90 sm:text-base"
+                    className="flex min-w-0 items-start gap-2.5 text-xs leading-snug text-foreground/90 sm:text-sm"
                   >
                     <RiCheckboxCircleLine
-                      className="mt-0.5 size-[1.125rem] shrink-0 text-foreground sm:size-5"
+                      className="mt-0.5 size-3.5 shrink-0 text-foreground sm:size-4"
                       aria-hidden
                     />
-                    <span className="max-w-md leading-snug lg:max-w-none">{item}</span>
+                    <span className="min-w-0">{item}</span>
                   </li>
                 ))}
               </ul>
