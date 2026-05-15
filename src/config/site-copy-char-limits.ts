@@ -35,10 +35,6 @@ export const siteCopyCharLimits = {
     headline: 56,
     summary: 150,
   },
-  social: {
-    linkedinUrl: 25,
-    githubUrl: 19,
-  },
   nav: {
     features: 8,
     howItWorks: 12,
@@ -136,8 +132,6 @@ const LIMIT_NOTES: Record<string, string> = {
   "ariaPatch.navBrandSlug": "Wordmark next to the logo; truncates on small widths.",
   "ariaPatch.headline": "Hero H1; must match `page.tsx` literal.",
   "ariaPatch.summary": "Hero subcopy; must match `page.tsx` literal.",
-  "social.linkedinUrl": "Full LinkedIn profile or company URL.",
-  "social.githubUrl": "Full GitHub org or profile URL.",
   "nav.features": "Desktop nav label.",
   "nav.howItWorks": "Desktop nav label.",
   "nav.pricing": "Desktop nav label.",

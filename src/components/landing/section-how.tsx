@@ -13,7 +13,7 @@ export function SectionHow({ className }: { className?: string }): React.ReactEl
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               {siteCopy.how.eyebrow}
             </p>
             <h2 className="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
@@ -25,7 +25,7 @@ export function SectionHow({ className }: { className?: string }): React.ReactEl
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground sm:text-base">
               {siteCopy.how.bullets.map((line) => (
                 <li key={line} className="flex gap-2">
-                  <RiCheckboxCircleFill className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden />
+                  <RiCheckboxCircleFill className="mt-0.5 size-5 shrink-0 text-foreground" aria-hidden />
                   <span>{line}</span>
                 </li>
               ))}
@@ -34,7 +34,7 @@ export function SectionHow({ className }: { className?: string }): React.ReactEl
 
           <ol className="relative space-y-6 lg:col-span-7">
             <div
-              className="absolute left-[1.125rem] top-6 hidden h-[calc(100%-2rem)] w-px bg-gradient-to-b from-border via-primary/30 to-border sm:block"
+              className="absolute left-[1.125rem] top-6 hidden h-[calc(100%-2rem)] w-px bg-border sm:block"
               aria-hidden
             />
             {siteCopy.how.steps.map(({ n, title, body }) => (
@@ -42,7 +42,7 @@ export function SectionHow({ className }: { className?: string }): React.ReactEl
                 key={n}
                 className="relative flex gap-4 rounded-2xl border border-border/80 bg-card/80 p-5 shadow-sm backdrop-blur-sm sm:gap-5 sm:p-6"
               >
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/12 text-sm font-bold text-primary ring-1 ring-primary/20 sm:size-10 sm:text-base">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border bg-muted text-sm font-bold text-foreground sm:size-10 sm:text-base">
                   {n}
                 </span>
                 <div className="min-w-0">

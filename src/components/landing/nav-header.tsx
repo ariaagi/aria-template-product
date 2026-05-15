@@ -9,8 +9,6 @@ const navLinkClass =
 type NavHeaderProps = {
   brandName: string
   twitterHandle: string
-  linkedinUrl: string
-  githubUrl: string
   /** Swapped by ARIA Build or your pipeline when a real logo exists */
   logoSrc?: string
 }
@@ -18,8 +16,6 @@ type NavHeaderProps = {
 export function NavHeader({
   brandName,
   twitterHandle,
-  linkedinUrl,
-  githubUrl,
   logoSrc,
 }: NavHeaderProps): React.ReactElement {
   const twitterUrl = `https://x.com/${twitterHandle}`
@@ -69,8 +65,6 @@ export function NavHeader({
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <SocialIconLinks
-            linkedinUrl={linkedinUrl}
-            githubUrl={githubUrl}
             twitterUrl={twitterUrl}
             twitterAriaLabel={`${brandName} on X (${twitterHandle})`}
           />

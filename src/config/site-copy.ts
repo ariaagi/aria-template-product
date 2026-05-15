@@ -70,13 +70,6 @@ export const siteCopy = {
       "This template helps you ship a polished offer page fast with clear messaging, email capture, and modern responsive design. Plug your copy and go live.",
   },
 
-  social: {
-    /** @maxChars 25 — full LinkedIn URL. */
-    linkedinUrl: "https://www.linkedin.com/",
-    /** @maxChars 19 — full GitHub URL. */
-    githubUrl: "https://github.com/",
-  },
-
   nav: {
     /** @maxChars 8 — desktop nav link. */
     features: "Features",

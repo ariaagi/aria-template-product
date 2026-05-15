@@ -34,8 +34,6 @@ const highlights = [
 const heroImageSrc = "/product-image.svg"
 const headerLogoSrc = siteCopy.paths.headerLogo
 const twitterHandle = "aria_agi"
-const socialLinkedinUrl = siteCopy.social.linkedinUrl
-const socialGithubUrl = siteCopy.social.githubUrl
 
 export default function Home(): React.ReactElement {
   return (
@@ -46,8 +44,6 @@ export default function Home(): React.ReactElement {
         brandName={siteCopy.ariaPatch.navBrandSlug}
         logoSrc={headerLogoSrc}
         twitterHandle={twitterHandle}
-        linkedinUrl={socialLinkedinUrl}
-        githubUrl={socialGithubUrl}
       />
 
       <main className="relative w-full min-w-0">
@@ -59,12 +55,12 @@ export default function Home(): React.ReactElement {
             <div className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-3xl lg:max-w-7xl">
               <a
                 href="#story"
-                className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 py-0.5 pl-0.5 pr-2 text-primary ring-1 ring-primary/10 transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:gap-2 md:py-1 md:pl-1 md:pr-2.5"
+                className="inline-flex w-fit max-w-full items-center gap-1 rounded-full border border-primary/20 bg-primary/5 py-px pl-px pr-1.5 text-primary ring-1 ring-primary/10 transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-1.5 sm:pr-2"
               >
-                <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/15 md:size-7">
-                  <RiFlashlightLine className="size-3 md:size-3.5" aria-hidden />
+                <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:size-[1.125rem]">
+                  <RiFlashlightLine className="size-2.5 text-primary" aria-hidden />
                 </span>
-                <span className="min-w-0 truncate text-[0.6875rem] font-semibold uppercase leading-tight tracking-wide text-primary sm:text-[0.75rem] md:text-[0.8125rem]">
+                <span className="min-w-0 truncate text-[0.625rem] font-medium uppercase leading-none tracking-wide text-primary/90 sm:text-[0.6875rem]">
                   {siteCopy.hero.pillLabel}
                 </span>
               </a>
@@ -98,7 +94,7 @@ export default function Home(): React.ReactElement {
                     className="flex w-full min-w-0 items-start justify-center gap-2.5 text-left text-sm text-foreground/90 sm:text-base"
                   >
                     <RiCheckboxCircleLine
-                      className="mt-0.5 size-[1.125rem] shrink-0 text-primary sm:size-5"
+                      className="mt-0.5 size-[1.125rem] shrink-0 text-foreground sm:size-5"
                       aria-hidden
                     />
                     <span className="max-w-md leading-snug lg:max-w-none">{item}</span>
@@ -116,7 +112,7 @@ export default function Home(): React.ReactElement {
         <SectionPricing />
         <SectionFaq />
 
-        <section className="border-t border-border/60 bg-gradient-to-br from-primary/10 via-background to-muted/30 py-16 sm:py-20">
+        <section className="border-t border-border/60 bg-muted/30 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               {siteCopy.closing.title}
@@ -142,8 +138,6 @@ export default function Home(): React.ReactElement {
       <SiteFooter
         brandName={siteCopy.ariaPatch.navBrandSlug}
         twitterHandle={twitterHandle}
-        linkedinUrl={socialLinkedinUrl}
-        githubUrl={socialGithubUrl}
       />
     </div>
   )

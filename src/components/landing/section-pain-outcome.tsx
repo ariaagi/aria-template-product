@@ -54,7 +54,7 @@ export function SectionPainOutcome({ className }: { className?: string }): React
             return (
               <Card
                 key={key}
-                className="border-primary/20 bg-gradient-to-br from-primary/5 via-card to-card shadow-md shadow-primary/5 ring-1 ring-primary/15 sm:col-span-2 lg:col-span-1"
+                className="border-border/80 bg-card shadow-sm shadow-black/[0.03] sm:col-span-2 lg:col-span-1"
               >
                 <CardHeader className="pb-2">
                   <span className="mb-2 inline-flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">

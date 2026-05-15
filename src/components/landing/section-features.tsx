@@ -29,7 +29,7 @@ export function SectionFeatures({ className }: { className?: string }): React.Re
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             {siteCopy.features.eyebrow}
           </p>
           <h2 className="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
@@ -49,7 +49,7 @@ export function SectionFeatures({ className }: { className?: string }): React.Re
                 className="border-border/80 bg-card/90 transition-shadow duration-300 hover:shadow-lg hover:shadow-black/[0.04]"
               >
                 <CardHeader>
-                  <span className="mb-1 inline-flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span className="mb-1 inline-flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">
                     <Icon className="size-5" aria-hidden />
                   </span>
                   <CardTitle className="text-base sm:text-lg">{title}</CardTitle>

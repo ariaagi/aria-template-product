@@ -1,15 +1,16 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
+import { Geist_Mono, Inter } from "next/font/google"
 
 import { SiteThemeRootStyle } from "@/components/site-theme-root-style"
 import { buildSiteMetadata } from "@/config/site-copy"
+import { cn } from "@/lib/utils"
 
 import "./globals.css"
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-inter",
 })
 
 const geistMono = Geist_Mono({
@@ -27,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${geistMono.variable} h-full min-w-0`}
+      className={cn(inter.variable, geistMono.variable, "h-full min-w-0 antialiased")}
     >
-      <body className="flex min-h-full min-w-0 flex-col">
+      <body className={cn(inter.className, "flex min-h-full min-w-0 flex-col")}>
         <SiteThemeRootStyle />
         {children}
       </body>

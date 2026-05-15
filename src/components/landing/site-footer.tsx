@@ -4,15 +4,11 @@ import { cn } from "@/lib/utils"
 type SiteFooterProps = {
   brandName: string
   twitterHandle: string
-  linkedinUrl: string
-  githubUrl: string
 }
 
 export function SiteFooter({
   brandName,
   twitterHandle,
-  linkedinUrl,
-  githubUrl,
 }: SiteFooterProps): React.ReactElement {
   const year = new Date().getFullYear()
   const twitterUrl = `https://x.com/${twitterHandle}`
@@ -25,8 +21,6 @@ export function SiteFooter({
         </p>
         <SocialIconLinks
           className="justify-start sm:justify-end"
-          linkedinUrl={linkedinUrl}
-          githubUrl={githubUrl}
           twitterUrl={twitterUrl}
           twitterAriaLabel={`${brandName} on X (${twitterHandle})`}
         />
