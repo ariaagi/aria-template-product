@@ -15,12 +15,12 @@ export function SiteFooter({
 
   return (
     <footer className={cn("border-t border-border/80 bg-background")}>
-      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-10 lg:px-8">
-        <p className="shrink-0 text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-8 text-center sm:px-6 sm:py-10 lg:px-8">
+        <p className="w-full text-sm text-muted-foreground">
           © {year} {brandName}. All rights reserved.
         </p>
         <SocialIconLinks
-          className="justify-start sm:justify-end"
+          className="justify-center"
           twitterUrl={twitterUrl}
           twitterAriaLabel={`${brandName} on X (${twitterHandle})`}
         />
