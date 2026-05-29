@@ -40,7 +40,7 @@ export function WaitlistForm({ className, dense }: WaitlistFormProps): React.Rea
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: value,
-          source: siteCopy.waitlist.sourceTag,
+          sourceTag: siteCopy.waitlist.sourceTag,
           sourceUrl,
         }),
       })
