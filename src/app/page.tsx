@@ -33,7 +33,7 @@ const highlights = [
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- patched by ARIA Build; not used in JSX
 const heroImageSrc = "/product-image.svg"
 const headerLogoSrc = siteCopy.paths.headerLogo
-const twitterHandle = "aria_agi"
+const twitterHandle = "ariaagidotcom"
 
 export default function Home(): React.ReactElement {
   return (

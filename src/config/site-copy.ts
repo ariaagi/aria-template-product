@@ -35,9 +35,9 @@ export const siteCopy = {
     description:
       "Autonomous revenue intelligence for operators who ship. Early access landing built with the ARIA template.",
     /** @maxChars 9 — Twitter/X card `site` field (@handle). */
-    twitterSite: "@aria_agi",
+    twitterSite: "@ariaagidotcom",
     /** @maxChars 9 — Twitter/X card `creator` field (@handle). */
-    twitterCreator: "@aria_agi",
+    twitterCreator: "@ariaagidotcom",
   },
 
   /**
@@ -57,7 +57,7 @@ export const siteCopy = {
     /** @maxChars 18 — uploaded product asset path (ARIA Build); not shown in hero layout. */
     heroImageSrc: "/product-image.svg",
     /** @maxChars 8 — X handle without `@` (profile URLs). */
-    twitterHandle: "aria_agi",
+    twitterHandle: "ariaagidotcom",
     /**
      * @maxChars 24 — header + footer wordmark; truncates in narrow header.
      * ARIA Build overwrites when launching from an idea.
