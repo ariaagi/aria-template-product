@@ -97,15 +97,6 @@ export const siteCopy = {
     ctaSecondary: "Explore features",
   },
 
-  logoStrip: {
-    /** @maxChars 16 — section accessible name. */
-    ariaLabel: "Trusted by teams",
-    /** @maxChars 28 — eyebrow above faux logos. */
-    eyebrow: "Built for operators who ship",
-    /** Each placeholder **@maxChars 9** — five logo strip names. */
-    placeholders: ["Acme", "Northwind", "Globex", "Umbrella", "Stark"] as const,
-  },
-
   story: {
     /** @maxChars 19 — story H2. */
     title: "Clarity beats noise",

@@ -1,5 +1,4 @@
 import { SocialIconLinks } from "@/components/landing/social-icon-links"
-import { cn } from "@/lib/utils"
 
 type SiteFooterProps = {
   brandName: string
@@ -14,8 +13,8 @@ export function SiteFooter({
   const twitterUrl = `https://x.com/${twitterHandle}`
 
   return (
-    <footer className={cn("border-t border-border/80 bg-background")}>
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-8 sm:gap-4 sm:px-6 sm:py-10 lg:px-8">
+    <footer>
+      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-5 sm:gap-4 sm:px-6 sm:py-6 lg:px-8">
         <div aria-hidden className="min-w-0" />
         <p className="text-center text-sm text-muted-foreground">
           © {year} {brandName}. All rights reserved.

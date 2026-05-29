@@ -7,8 +7,9 @@ import {
   RiUserVoiceLine,
 } from "@remixicon/react"
 
+import { MarketingGlassCard } from "@/components/landing/marketing-glass-card"
+import { marketingBodyClass, marketingCardBodyClass, marketingGlassIconClass } from "@/components/landing/marketing-glass"
 import { SectionCta } from "@/components/landing/section-cta"
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { siteCopy } from "@/config/site-copy"
 import { cn } from "@/lib/utils"
 
@@ -24,7 +25,7 @@ const FEATURE_ICONS = {
 export function SectionFeatures({ className }: { className?: string }): React.ReactElement {
   return (
     <section
-      className={cn("scroll-mt-20 bg-muted/25 py-16 sm:scroll-mt-24 sm:py-20 lg:py-24", className)}
+      className={cn("scroll-mt-20 py-16 sm:scroll-mt-24 sm:py-20 lg:py-24", className)}
       id="features"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -35,29 +36,27 @@ export function SectionFeatures({ className }: { className?: string }): React.Re
           <h2 className="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
             {siteCopy.features.title}
           </h2>
-          <p className="mt-3 max-w-xl text-pretty text-base text-muted-foreground sm:mt-4 sm:text-lg">
+          <p className={cn("mt-3 max-w-xl sm:mt-4", marketingBodyClass)}>
             {siteCopy.features.subtitle}
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
           {siteCopy.features.items.map(({ key, title, description }) => {
             const Icon = FEATURE_ICONS[key]
             return (
-              <Card
-                key={key}
-                className="border-border/80 bg-card/90 transition-shadow duration-300 hover:shadow-lg hover:shadow-black/[0.04]"
-              >
-                <CardHeader>
-                  <span className="mb-1 inline-flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">
-                    <Icon className="size-5" aria-hidden />
-                  </span>
-                  <CardTitle className="text-base sm:text-lg">{title}</CardTitle>
-                  <CardDescription className="text-pretty text-sm leading-relaxed sm:text-[0.9375rem]">
-                    {description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <MarketingGlassCard key={key}>
+                <span
+                  className={cn(
+                    "mb-3 inline-flex size-10 items-center justify-center rounded-xl text-foreground",
+                    marketingGlassIconClass()
+                  )}
+                >
+                  <Icon className="relative z-[1] size-5" aria-hidden />
+                </span>
+                <h3 className="text-lg font-semibold tracking-tight text-foreground">{title}</h3>
+                <p className={cn("mt-2", marketingCardBodyClass)}>{description}</p>
+              </MarketingGlassCard>
             )
           })}
         </div>

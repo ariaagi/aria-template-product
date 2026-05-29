@@ -46,12 +46,23 @@ export const siteThemeLight = {
   "--sidebar-border": "oklch(0.922 0 0)",
   "--sidebar-ring": "oklch(0.708 0 0)",
 
-  /** Flat page wash (no colored gradient — matches background). */
-  "--marketing-backdrop-radial-1": "oklch(1 0 0)",
-  "--marketing-backdrop-radial-2": "oklch(1 0 0)",
-  "--marketing-backdrop-radial-3": "oklch(1 0 0)",
-  /** Grid line color (alpha baked in for the mesh overlay). */
-  "--marketing-backdrop-grid": "oklch(0.145 0 0 / 0.04)",
+  /** Mesh washes — teal / sky / warm sand (ARIA Build may retint to brand). */
+  "--marketing-backdrop-radial-1": "oklch(0.90 0.09 195)",
+  "--marketing-backdrop-radial-2": "oklch(0.92 0.07 245)",
+  "--marketing-backdrop-radial-3": "oklch(0.89 0.10 55)",
+  /** Dot grid (alpha baked in). */
+  "--marketing-backdrop-grid": "oklch(0.42 0.05 245 / 0.11)",
+
+  /** Frosted marketing surfaces — cards, steps, pricing (liquid glass). */
+  "--marketing-glass-bg": "oklch(1 0 0 / 0.52)",
+  "--marketing-glass-bg-hover": "oklch(1 0 0 / 0.64)",
+  /** Visible edge on light pages (not white-on-white). */
+  "--marketing-glass-border": "oklch(0.205 0 0 / 0.12)",
+  "--marketing-glass-border-hover": "oklch(0.205 0 0 / 0.2)",
+  "--marketing-glass-highlight": "oklch(1 0 0 / 0.88)",
+  "--marketing-glass-shadow": "oklch(0.205 0 0 / 0.12)",
+  "--marketing-glass-icon-bg": "oklch(1 0 0 / 0.58)",
+  "--marketing-glass-icon-border": "oklch(0.205 0 0 / 0.1)",
 } as const satisfies Record<string, string>
 
 export type SiteThemeLight = typeof siteThemeLight

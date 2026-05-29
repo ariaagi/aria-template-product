@@ -1,8 +1,9 @@
 import { RiCheckboxLine, RiVipCrown2Line } from "@remixicon/react"
 
+import { MarketingGlassCard } from "@/components/landing/marketing-glass-card"
+import { marketingBodyClass, marketingCardBodyClass } from "@/components/landing/marketing-glass"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { siteCopy } from "@/config/site-copy"
 import { cn } from "@/lib/utils"
@@ -21,14 +22,12 @@ export function SectionPricing({ className }: { className?: string }): React.Rea
           <h2 className="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
             {siteCopy.pricing.title}
           </h2>
-          <p className="mt-3 text-pretty text-base text-muted-foreground sm:mt-4 sm:text-lg">
-            {siteCopy.pricing.subtitle}
-          </p>
+          <p className={cn("mt-3 sm:mt-4", marketingBodyClass)}>{siteCopy.pricing.subtitle}</p>
         </div>
 
         <div className="mx-auto mt-10 max-w-lg sm:mt-14">
-          <Card className="border-border/80 bg-card shadow-sm shadow-black/[0.04]">
-            <CardHeader className="pb-4 text-center sm:text-left">
+          <MarketingGlassCard className="flex flex-col gap-4">
+            <div className="pb-1 text-center sm:text-left">
               <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
                 <Badge variant="default" className="gap-1 font-medium">
                   <RiVipCrown2Line className="size-3.5" aria-hidden />
@@ -36,30 +35,31 @@ export function SectionPricing({ className }: { className?: string }): React.Rea
                 </Badge>
                 <span className="text-sm text-muted-foreground">{siteCopy.pricing.badgeHint}</span>
               </div>
-              <CardTitle className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              <h3 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 {siteCopy.pricing.planTitle}
-              </CardTitle>
-              <CardDescription className="text-base text-muted-foreground">
-                {siteCopy.pricing.planDescription}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <Separator className="bg-border/80" />
-              <ul className="space-y-3 text-left text-sm text-muted-foreground sm:text-base">
-                {siteCopy.pricing.perks.map((line) => (
-                  <li key={line} className="flex gap-3">
-                    <RiCheckboxLine className="mt-0.5 size-5 shrink-0 text-foreground" aria-hidden />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter className="flex justify-center">
+              </h3>
+              <p className={cn("mt-2", marketingCardBodyClass)}>{siteCopy.pricing.planDescription}</p>
+            </div>
+
+            <Separator className="bg-foreground/12" />
+
+            <ul className={cn("space-y-3 text-left", marketingCardBodyClass)}>
+              {siteCopy.pricing.perks.map((line) => (
+                <li key={line} className="flex gap-3 text-foreground/72">
+                  <RiCheckboxLine className="mt-0.5 size-5 shrink-0 text-foreground" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Separator className="bg-foreground/12" />
+
+            <div className="flex justify-center pt-1">
               <a href="#waitlist" className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}>
                 {siteCopy.pricing.ctaJoin}
               </a>
-            </CardFooter>
-          </Card>
+            </div>
+          </MarketingGlassCard>
         </div>
       </div>
     </section>

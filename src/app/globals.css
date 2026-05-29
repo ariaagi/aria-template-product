@@ -100,3 +100,164 @@
     text-size-adjust: 100%;
   }
 }
+
+@layer components {
+  .marketing-backdrop-base {
+    background:
+      linear-gradient(
+        168deg,
+        color-mix(in oklch, var(--marketing-backdrop-radial-1) 14%, var(--background)) 0%,
+        var(--background) 52%,
+        color-mix(in oklch, var(--marketing-backdrop-radial-3) 12%, var(--background)) 100%
+      );
+  }
+
+  .marketing-backdrop-mesh {
+    opacity: 0.46;
+    background:
+      radial-gradient(ellipse 105% 75% at 0% -8%, var(--marketing-backdrop-radial-1) 0%, transparent 66%),
+      radial-gradient(ellipse 85% 60% at 100% 2%, var(--marketing-backdrop-radial-2) 0%, transparent 62%),
+      radial-gradient(ellipse 95% 70% at 50% 108%, var(--marketing-backdrop-radial-3) 0%, transparent 64%);
+  }
+
+  .marketing-backdrop-orb-a {
+    top: -11rem;
+    right: -8rem;
+    width: 30rem;
+    height: 30rem;
+    background: color-mix(in oklch, var(--marketing-backdrop-radial-2) 62%, transparent);
+    opacity: 0.82;
+  }
+
+  .marketing-backdrop-orb-b {
+    bottom: -13rem;
+    left: -7rem;
+    width: 34rem;
+    height: 34rem;
+    background: color-mix(in oklch, var(--marketing-backdrop-radial-1) 58%, transparent);
+    opacity: 0.78;
+  }
+
+  .marketing-backdrop-grid {
+    background-image: radial-gradient(
+      circle at center,
+      var(--marketing-backdrop-grid) 1.25px,
+      transparent 1.25px
+    );
+    background-size: 26px 26px;
+    opacity: 0.78;
+    mask-image: linear-gradient(to bottom, black 0%, black 88%, transparent 100%);
+  }
+
+  .marketing-glass-surface {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--marketing-glass-border);
+    background: var(--marketing-glass-bg);
+    backdrop-filter: blur(28px) saturate(1.75);
+    -webkit-backdrop-filter: blur(28px) saturate(1.75);
+    box-shadow:
+      inset 0 1px 0 0 var(--marketing-glass-highlight),
+      inset 0 0 0 1px color-mix(in oklch, white 40%, transparent),
+      0 1px 2px 0 color-mix(in oklch, var(--foreground) 6%, transparent),
+      0 8px 24px -8px color-mix(in oklch, var(--marketing-glass-shadow) 80%, transparent),
+      0 18px 44px -16px var(--marketing-glass-shadow);
+  }
+
+  .marketing-glass-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        148deg,
+        color-mix(in oklch, white 45%, transparent) 0%,
+        transparent 34%,
+        color-mix(in oklch, var(--marketing-backdrop-radial-2) 12%, transparent) 72%,
+        color-mix(in oklch, var(--marketing-backdrop-radial-3) 10%, transparent) 100%
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .marketing-glass-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+    box-shadow:
+      inset 0 -24px 48px -32px color-mix(in oklch, var(--marketing-backdrop-radial-3) 16%, transparent),
+      inset 24px 0 48px -32px color-mix(in oklch, var(--marketing-backdrop-radial-2) 12%, transparent);
+  }
+
+  .marketing-glass-surface > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .marketing-glass-surface :where(.text-muted-foreground, [data-slot="card-description"]) {
+    color: color-mix(in oklch, var(--foreground) 58%, transparent);
+  }
+
+  .marketing-glass-surface-interactive {
+    transition:
+      background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) {
+    .marketing-glass-surface-interactive:hover {
+      background: var(--marketing-glass-bg-hover);
+      transform: translateY(-3px);
+      border-color: var(--marketing-glass-border-hover);
+      box-shadow:
+        inset 0 1px 0 0 var(--marketing-glass-highlight),
+        inset 0 0 0 1px color-mix(in oklch, white 52%, transparent),
+        0 2px 6px 0 color-mix(in oklch, var(--foreground) 7%, transparent),
+        0 14px 36px -12px color-mix(in oklch, var(--marketing-glass-shadow) 95%, transparent),
+        0 28px 56px -20px color-mix(in oklch, var(--marketing-glass-shadow) 120%, transparent);
+    }
+  }
+
+  @media (hover: hover) {
+    .marketing-glass-surface-interactive:active {
+      transform: translateY(-1px);
+      transition-duration: 120ms;
+    }
+  }
+
+  .marketing-glass-icon,
+  .marketing-glass-badge {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--marketing-glass-icon-border);
+    background: var(--marketing-glass-icon-bg);
+    backdrop-filter: blur(16px) saturate(1.65);
+    -webkit-backdrop-filter: blur(16px) saturate(1.65);
+    box-shadow:
+      inset 0 1px 0 0 color-mix(in oklch, white 90%, transparent),
+      0 2px 8px -2px color-mix(in oklch, var(--marketing-glass-shadow) 75%, transparent),
+      0 1px 2px 0 color-mix(in oklch, var(--foreground) 6%, transparent);
+  }
+
+  .marketing-glass-icon::before,
+  .marketing-glass-badge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklch, white 55%, transparent) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}

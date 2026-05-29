@@ -50,11 +50,6 @@ export const siteCopyCharLimits = {
     ctaPrimary: 13,
     ctaSecondary: 16,
   },
-  logoStrip: {
-    ariaLabel: 16,
-    eyebrow: 28,
-    placeholder: 9,
-  },
   story: {
     title: 19,
     subtitle: 96,
@@ -141,9 +136,6 @@ const LIMIT_NOTES: Record<string, string> = {
   "closing.body": "Final band supporting copy.",
   "closing.ctaPrimary": "Primary button label.",
   "closing.ctaSecondary": "Outline button label.",
-  "logoStrip.ariaLabel": "Accessible name for the logo row section.",
-  "logoStrip.eyebrow": "Small caps line above fake logos.",
-  "logoStrip.placeholder": "Each faux logo word (max of five shipped).",
   "story.title": "Story section H2.",
   "story.subtitle": "Story intro paragraph.",
   "story.painTitle": "Each pain card title (max of shipped cards).",

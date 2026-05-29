@@ -4,8 +4,9 @@ import {
   RiRocket2Line,
 } from "@remixicon/react"
 
+import { MarketingGlassCard } from "@/components/landing/marketing-glass-card"
+import { marketingBodyClass, marketingCardBodyClass, marketingGlassIconClass } from "@/components/landing/marketing-glass"
 import { SectionCta } from "@/components/landing/section-cta"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { siteCopy } from "@/config/site-copy"
 import { cn } from "@/lib/utils"
 
@@ -26,44 +27,44 @@ export function SectionPainOutcome({ className }: { className?: string }): React
           <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
             {siteCopy.story.title}
           </h2>
-          <p className="mt-3 text-pretty text-base text-muted-foreground sm:mt-4 sm:text-lg">
+          <p className={cn("mt-3 sm:mt-4", marketingBodyClass)}>
             {siteCopy.story.subtitle}
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {siteCopy.story.pains.map(({ key, title, body }) => {
             const Icon = PAIN_ICONS[key]
             return (
-              <Card
-                key={key}
-                className="border-border/80 bg-card/80 shadow-sm shadow-black/[0.03] backdrop-blur-sm"
-              >
-                <CardHeader className="pb-2">
-                  <span className="mb-2 inline-flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">
-                    <Icon className="size-5" aria-hidden />
-                  </span>
-                  <CardTitle className="text-lg">{title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">{body}</CardContent>
-              </Card>
+              <MarketingGlassCard key={key}>
+                <span
+                  className={cn(
+                    "mb-3 inline-flex size-10 items-center justify-center rounded-xl text-foreground",
+                    marketingGlassIconClass()
+                  )}
+                >
+                  <Icon className="relative z-[1] size-5" aria-hidden />
+                </span>
+                <h3 className="text-lg font-semibold tracking-tight text-foreground">{title}</h3>
+                <p className={cn("mt-2", marketingCardBodyClass)}>{body}</p>
+              </MarketingGlassCard>
             )
           })}
           {siteCopy.story.outcomes.map(({ key, title, body }) => {
             const Icon = OUTCOME_ICONS[key]
             return (
-              <Card
-                key={key}
-                className="border-border/80 bg-card shadow-sm shadow-black/[0.03] sm:col-span-2 lg:col-span-1"
-              >
-                <CardHeader className="pb-2">
-                  <span className="mb-2 inline-flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">
-                    <Icon className="size-5" aria-hidden />
-                  </span>
-                  <CardTitle className="text-lg">{title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">{body}</CardContent>
-              </Card>
+              <MarketingGlassCard key={key} className="sm:col-span-2 lg:col-span-1">
+                <span
+                  className={cn(
+                    "mb-3 inline-flex size-10 items-center justify-center rounded-xl text-foreground",
+                    marketingGlassIconClass()
+                  )}
+                >
+                  <Icon className="relative z-[1] size-5" aria-hidden />
+                </span>
+                <h3 className="text-lg font-semibold tracking-tight text-foreground">{title}</h3>
+                <p className={cn("mt-2", marketingCardBodyClass)}>{body}</p>
+              </MarketingGlassCard>
             )
           })}
         </div>

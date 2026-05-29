@@ -4,10 +4,10 @@ import { RiCheckboxCircleLine, RiFlashlightLine } from "@remixicon/react"
 
 import { PageBackdrop } from "@/components/landing/page-backdrop"
 import { NavHeader } from "@/components/landing/nav-header"
+import { marketingBodyClass } from "@/components/landing/marketing-glass"
 import { SectionFaq } from "@/components/landing/section-faq"
 import { SectionFeatures } from "@/components/landing/section-features"
 import { SectionHow } from "@/components/landing/section-how"
-import { SectionLogoStrip } from "@/components/landing/section-logo-strip"
 import { SectionPainOutcome } from "@/components/landing/section-pain-outcome"
 import { SectionPricing } from "@/components/landing/section-pricing"
 import { SiteFooter } from "@/components/landing/site-footer"
@@ -48,19 +48,20 @@ export default function Home(): React.ReactElement {
 
       <main className="relative w-full min-w-0">
         <section
-          className="relative border-b border-border/60 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16"
+          className="relative pb-16 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16"
           aria-labelledby="hero-heading"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto flex w-full max-w-2xl flex-col items-center text-center sm:max-w-3xl lg:max-w-7xl">
               <a
                 href="#story"
-                className="inline-flex w-fit max-w-full items-center gap-1 rounded-full border border-primary/20 bg-primary/5 py-px pl-px pr-1.5 text-primary ring-1 ring-primary/10 transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-1.5 sm:pr-2"
+                className="inline-flex h-7 max-w-full items-center gap-1.5 rounded-full border border-foreground/10 bg-background/40 px-2.5 shadow-sm shadow-black/[0.03] backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-200 hover:border-foreground/16 hover:bg-background/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:h-8 sm:gap-2 sm:px-3"
               >
-                <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:size-[1.125rem]">
-                  <RiFlashlightLine className="size-2.5 text-primary" aria-hidden />
-                </span>
-                <span className="min-w-0 truncate text-[0.625rem] font-medium uppercase leading-none tracking-wide text-primary/90 sm:text-[0.6875rem]">
+                <RiFlashlightLine
+                  className="size-3 shrink-0 text-foreground/65 sm:size-3.5"
+                  aria-hidden
+                />
+                <span className="min-w-0 truncate text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.14em] text-foreground/75 sm:text-xs">
                   {siteCopy.hero.pillLabel}
                 </span>
               </a>
@@ -74,7 +75,7 @@ export default function Home(): React.ReactElement {
                 >
                   Turn validated ideas into high-converting landing pages.
                 </h1>
-                <p className="mx-auto w-full max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground sm:max-w-2xl sm:text-base lg:max-w-2xl lg:text-base lg:leading-relaxed">
+                <p className={cn("mx-auto w-full max-w-xl sm:max-w-2xl lg:max-w-2xl", marketingBodyClass)}>
                   This template helps you ship a polished offer page fast with clear messaging, email
                   capture, and modern responsive design. Plug your copy and go live.
                 </p>
@@ -105,19 +106,18 @@ export default function Home(): React.ReactElement {
           </div>
         </section>
 
-        <SectionLogoStrip />
         <SectionPainOutcome />
         <SectionFeatures />
         <SectionHow />
         <SectionPricing />
         <SectionFaq />
 
-        <section className="border-t border-border/60 bg-muted/30 py-16 sm:py-20">
+        <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               {siteCopy.closing.title}
             </h2>
-            <p className="mx-auto mt-3 max-w-lg text-pretty text-base text-muted-foreground sm:mt-4 sm:text-lg">
+            <p className={cn("mx-auto mt-3 max-w-lg sm:mt-4", marketingBodyClass)}>
               {siteCopy.closing.body}
             </p>
             <div className="mx-auto mt-8 flex max-w-xl flex-col items-stretch gap-3 sm:mt-10 sm:flex-row sm:justify-center">
